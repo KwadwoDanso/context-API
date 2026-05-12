@@ -1,0 +1,181 @@
+/* CSS variables flip when data-theme="dark" is set on the root */
+:root {
+    --bg: #f5f5f5;
+    --surface: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --accent: #3b82f6;
+    --danger: #ef4444;
+}
+
+[data-theme="dark"] {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: #334155;
+    --accent: #60a5fa;
+    --danger: #f87171;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.app {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.app-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.theme-toggle,
+button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.todo-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.todo-input input {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.filter-buttons button {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+}
+
+.filter-buttons button.is-active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.todo-item input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+}
+
+.todo-text {
+    flex: 1;
+    cursor: pointer;
+}
+
+.todo-item.is-done .todo-text {
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+.todo-edit {
+    flex: 1;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.todo-item button {
+    background: transparent;
+    color: var(--muted);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+}
+
+.todo-item button:hover {
+    color: var(--danger);
+}
+
+.todo-empty {
+    padding: 1rem;
+    text-align: center;
+    color: var(--muted);
+    font-style: italic;
+}
+
+.todo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.todo-footer button {
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.todo-footer button:hover {
+    color: var(--danger);
+}
